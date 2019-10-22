@@ -1,0 +1,6 @@
+<div class="product-overview">
+  <div *ngFor="let product of products" class="product-card" [routerLink]="['configure', product.featureModelId]">
+    <img [src]="product.imageUrl" />
+    <h3 [innerHTML]="product.description"></h3>
+  </div>
+</div>

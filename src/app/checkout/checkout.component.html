@@ -1,0 +1,24 @@
+<h3 *ngIf="configuration">Request quote <small>{{configuration.root.description}}</small></h3>
+
+<div *ngIf="!isSubmitted">
+
+  <form #checkoutForm="ngForm" (ngSubmit)="requestQuote(checkoutForm.value)">
+    <fieldset>
+      <legend>Request quote</legend>
+      <label>First name <input type="text" name="firstName" ngModel /></label>    
+      <label>Last name <input type="text" name="lastName" ngModel /></label>    
+      <label>Company name <input type="text" name="companyName" ngModel /></label>  
+      <label>Phone number <input type="text" name="phoneNumber" ngModel /></label>    
+      <label>Email <input type="email" name="email" ngModel /></label>    
+      <label>Street <input type="email" name="streetName" ngModel /></label>    
+      <label>Postal code <input type="email" name="postalCode" ngModel /></label>
+
+      <input type="submit" value="Submit" />
+    </fieldset>
+  </form>
+  
+</div>
+
+<div *ngIf="isSubmitted">
+  <h2>Thank you for your quotation request!</h2>
+</div>

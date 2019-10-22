@@ -1,0 +1,14 @@
+<div *ngIf="configuration" class="configurator-container">
+
+    <h2 [innerHTML]="configuration.root.description"></h2>
+  
+    <ng-container *ngFor="let step of configuration.steps">
+  
+      <app-configurator-option *ngFor="let feature of step.features" [feature]="feature"></app-configurator-option>
+  
+    </ng-container>
+    
+    <h3>Total price <small>{{configuration.totalPriceExclVat}}</small></h3>
+  
+    <button routerLink="/checkout">Request quote</button>
+  </div>

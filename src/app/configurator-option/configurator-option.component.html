@@ -1,0 +1,19 @@
+<div class="configurator-option" *ngIf="feature.type != 1 || feature.features.length > 0">
+  <b *ngIf="feature.type == 1" [innerHTML]="feature.description"></b>
+
+  <label *ngIf="feature.type == 0 || feature.type == 3">
+    <img [src]="feature.imageUrl" />
+    <input type="checkbox" [checked]="feature.isSelected" (change)="toggle()" />
+    <span [innerHTML]="feature.description"></span>
+    <small>{{feature.unitPrice}}</small>
+  </label>
+
+  <label *ngIf="feature.type == 2">
+    <img [src]="feature.imageUrl" />
+    <input type="radio" [checked]="feature.isSelected" (change)="toggle()" />
+    <span [innerHTML]="feature.description"></span>
+    <small>{{feature.unitPrice}}</small>
+  </label>
+  
+  <app-configurator-option *ngFor="let child of feature.features" [feature]="child"></app-configurator-option>
+</div>
